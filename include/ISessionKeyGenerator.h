@@ -20,6 +20,7 @@ public:
     virtual std::vector<std::uint8_t> computeHmacSha256(
         std::span<const std::uint8_t> data,
         std::span<const std::uint8_t> key) const = 0;
-};
 
+    virtual std::vector<std::uint8_t> generateRandomBytes(std::size_t length) const = 0;
+};
 #endif

@@ -30,6 +30,8 @@ public:
         std::span<const std::uint8_t> data,
         std::span<const std::uint8_t> key) const;
 
+    std::vector<std::uint8_t> generateRandomBytes(std::size_t length) const;
+
     void setSessionKeyGenerator(std::unique_ptr<ISessionKeyGenerator> impl);
 
 private:

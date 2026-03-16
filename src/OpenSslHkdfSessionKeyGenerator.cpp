@@ -126,3 +126,19 @@ std::vector<std::uint8_t> OpenSslHkdfSessionKeyGenerator::computeHmacSha256(
     digest.resize(digestLength);
     return digest;
 }
+
+std::vector<std::uint8_t> OpenSslHkdfSessionKeyGenerator::generateRandomBytes(std::size_t length) const {
+    if (length == 0U) {
+        throw std::invalid_argument("length must be greater than 0");
+    }
+    if (length > static_cast<std::size_t>(std::numeric_limits<int>::max())) {
+        throw std::invalid_argument("length exceeds OpenSSL RAND input limit");
+    }
+
+    std::vector<std::uint8_t> bytes(length);
+    if (RAND_priv_bytes(bytes.data(), static_cast<int>(bytes.size())) != 1) {
+        throw std::runtime_error("RAND_priv_bytes failed while generating random bytes");
+    }
+
+    return bytes;
+}

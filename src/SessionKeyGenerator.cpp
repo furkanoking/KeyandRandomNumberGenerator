@@ -30,6 +30,10 @@ std::vector<std::uint8_t> SessionKeyGenerator::computeHmacSha256(
     return m_impl->computeHmacSha256(data, key);
 }
 
+std::vector<std::uint8_t> SessionKeyGenerator::generateRandomBytes(std::size_t length) const {
+    return m_impl->generateRandomBytes(length);
+}
+
 void SessionKeyGenerator::setSessionKeyGenerator(std::unique_ptr<ISessionKeyGenerator> impl) {
     m_impl = std::move(impl);
 }

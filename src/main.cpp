@@ -19,6 +19,8 @@ int main() {
     const std::vector<std::uint8_t> context = {'E', 'C', 'U', '-', 'A', '1'};
     const auto sessionKey = keyGen.deriveSessionKey(context, 0x1001U, 32);
     const auto hmac = keyGen.computeHmacSha256(context, sessionKey);
+    const auto random8Bytes = keyGen.generateRandomBytes(8);
+    const auto random16Bytes = keyGen.generateRandomBytes(16);
 
 
 }
