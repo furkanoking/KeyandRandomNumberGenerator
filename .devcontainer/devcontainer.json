@@ -1,0 +1,23 @@
+{
+  "name": "Antigravity-KeyGenerator",
+  "image": "antigravity:latest",
+  "workspaceFolder": "/workspaces/KeyGenerator",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/KeyGenerator,type=bind",
+  "mounts": [
+    "source=/Users/furkanozen/Documents/Libraries,target=/Users/furkanozen/Documents/Libraries,type=bind"
+  ],
+  "remoteUser": "root",
+  "init": true,
+  "overrideCommand": true,
+  "remoteEnv": {
+    "VSCODE_AGENT_FOLDER": "/tmp/.antigravity-server"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.cmake-tools"
+      ]
+    }
+  }
+}
